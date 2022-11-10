@@ -12,9 +12,9 @@ app.secret_key='some secret key'
 
 
 #Config MySQL
-app.config['MYSQL_HOST']='localhost'
-app.config['MYSQL_USER']='root'
-app.config['MYSQL_PASSWORD']='password'
+app.config['MYSQL_HOST']=environ.get('DB_HOST')
+app.config['MYSQL_USER']=environ.get('DB_USER')
+app.config['MYSQL_PASSWORD']=environ.get('DB_PASS')
 app.config['MYSQL_DB']='bloodbank'
 app.config['MYSQL_CURSORCLASS']='DictCursor'
 
