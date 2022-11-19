@@ -1,0 +1,36 @@
+{% extends 'layout.html'%} {% block body %}
+<div class="jumbotron" style="background-color: #f7f7f7">
+  <h1>Plasma Requests</h1>
+  <hr class="my-4" />
+  <table class="table table-striped">
+    <tr>
+      <th>Contact Id</th>
+      <th>Name</th>
+      <th>Blood Group</th>
+      <th>Packets</th>
+      <th>Address</th>
+      <th></th>
+      <th></th>
+    </tr>
+    {% for request in requests %}
+    <tr>
+      <td>{{request.N_ID}}</td>
+      <td>{{request.NF_NAME}}</td>
+      <td>{{request.NB_GROUP}}</td>
+      <td>{{request.N_PACKETS}}</td>
+      <td>{{request.NADRESS}}</td>
+      <td>
+        <a href="{{'accept/%s'%request.N_ID}}" class="btn btn-success"
+          >Accept</a
+        >
+      </td>
+      <td>
+        <a href="{{'decline/%s'%request.N_ID}}" class="btn btn-danger"
+          >Decline</a
+        >
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+{% endblock%}

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+
+<div class="jumbotron text-centre" style="background-color:#f7f7f7;">
+  <h1>Welcome to Plasma-Bank Monitoring System</h1>
+  <img src="{{url_for('static',filename='images.jpeg')}}" alt="Donate plasma" width="1050" height="250" style="padding:15px;">
+  <p>Most people are able to give plasma, but only 4% actually do. You can donate plasma if you:
+<ul style="list-style-type:square">
+
+<li>are fit and healthy</li>
+<li>weigh at least 50kg (7st 12lb)</li>
+<li>are 17-66 years old (or 70 if you've given plasma before)</li>
+<li>are over 70 and have given plasma in the last two years</li>
+</ul></p>
+  <hr class="my-4">
+  {% if camp == false %}
+  <p>There are no camps near you. Please check back later.</p>
+  {% else %}
+    <p>There is a camp near you. Please visit the camp to donate plasma.</p>
+  <p>Next Camp is on {{camp['CAMP_DATE']}} by {{camp['CAMP_NAME']}} at {{camp['CAMP_PLACE']}}.</p>
+  {% endif %}
+</div>
+{% endblock %}
